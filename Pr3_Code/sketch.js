@@ -245,6 +245,11 @@ function draw() {
 
         nx = pose.nose.x;
         ny = pose.nose.y;
+        lex = pose.leftEye.x;
+        ley = pose.leftEye.y;
+        rex = pose.rightEye.x;
+        rey = pose.rightEye.y;
+        console.log(pose);
 
         background(32);
 
@@ -275,6 +280,7 @@ function draw() {
             positionY[particle] += velocityY[particle];
 
             fill(255, 180, 0, 157);
+            noStroke();
 
             ellipse(positionX[particle], positionY[particle], mass[particle] * 1000, mass[particle] * 1000);
         }
@@ -283,8 +289,14 @@ function draw() {
             addNewParticle();
         }
 
-        // fill(255, 255, 255);
-        // ellipse(nx, ny, 10, 10);
+        fill(144, 158, 85);
+        stroke(144, 158, 85);
+        ellipse(nx, ny, 10, 10);
+        ellipse(lex, ley, 10, 10);
+        ellipse(rex, rey, 10, 10);
+        line(nx, ny, lex, ley);
+        line(rex, rey, lex, ley);
+        line(rex, rey, nx, ny);
 
         // filter(BLUR, random(5, 7));
     }
